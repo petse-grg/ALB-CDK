@@ -6,7 +6,6 @@ from aws_cdk import (
     # Duration,
     Stack,
     aws_ec2 as ec2,
-    aws_iam as iam
     # aws_sqs as sqs,
 )
 
