@@ -3,11 +3,14 @@ import os
 
 import aws_cdk as cdk
 
-from alb_cdk.alb_cdk_stack import AlbCdkStack
-
+from alb_cdk.web_server import CdkWebServerStack
+from alb_cdk.alb_cdk_stack import CdkNetworkStack
 
 app = cdk.App()
-AlbCdkStack(app, "AlbCdkStack",
+
+NetworkStack = CdkNetworkStack(app, "CdkNetworkStack")
+
+CdkWebServerStack(app, "CdkWebServerStack", cdk_vpc = NetworkStack.cdk_vpc
     # If you don't specify 'env', this stack will be environment-agnostic.
     # Account/Region-dependent features and context lookups will not work,
     # but a single synthesized template can be deployed anywhere.
